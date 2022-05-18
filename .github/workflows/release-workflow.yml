@@ -3,7 +3,7 @@ name: Create Release
 on:
   push:
     branches:    
-        - '*'
+      - '*'
     # tags:
     #   - v*
 
@@ -30,7 +30,7 @@ jobs:
         uses: coditory/changelog-parser@v1
         with:
           path: CHANGELOG.md
-          version: version: ${{ steps.lasttag.outputs.version }}
+          version: ${{ steps.lasttag.outputs.version }}
       
       # - name: Create GitHub Release
       #   id: create_release
