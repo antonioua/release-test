@@ -30,6 +30,10 @@ jobs:
           path: 'CHANGELOG.md'
           # version: ${{ steps.lasttag.outputs.version }}
       
+      - name: print
+        run: |
+          ${{ steps.changelog.outputs.description }}
+      
       # - name: Create GitHub Release
       #   id: create_release
       #   uses: actions/create-release@v1
