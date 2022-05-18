@@ -7,3 +7,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ## [Unreleased]
 ### Added
 - Another important feature
+
+## [0.2.0] - 2020-11-10
+### Added
+- Important feature
