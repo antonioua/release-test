@@ -8,6 +8,16 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 - Another important feature
 
-## [0.2.0] - 2020-11-10
+### Fixed
+
+* Bundle generation for updated OpenShift marketplace requirements
+* Related images added to manager env for supporting cockroachDBVersion in the spec
+* Fixed operator crash loop when cockroachDBVersion is used.
+
+### Changed
+
+* Now validates if `pvc.Volumemode` set correctly to `Filesystem`
+
+## [0.0.0] - 2020-11-10
 ### Added
 - Important feature
