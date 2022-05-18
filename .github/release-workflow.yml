@@ -1,0 +1,43 @@
+name: Create Release
+
+on:
+  push:
+    branches:    
+        - '*'
+    # tags:
+    #   - v*
+
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get version from tag
+        id: lasttag
+        run: echo ::set-output name=version::0.0.0
+        shell: bash
+      
+      # - name: Get version from tag
+      #   id: lasttag
+      #   run: echo ::set-output name=version::${GITHUB_REF#refs/tags/v}
+      #   shell: bash
+      
+      - name: Checkout code
+        uses: actions/checkout@v2
+     
+      - name: Parse Changelog Entry
+        id: changelog
+        uses: coditory/changelog-parser@v1
+        with:
+          path: CHANGELOG.md
+          version: version: ${{ steps.lasttag.outputs.version }}
+      
+      # - name: Create GitHub Release
+      #   id: create_release
+      #   uses: actions/create-release@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     tag_name: ${{ steps.changelog.outputs.version }}
+      #     release_name: Release ${{ steps.changelog.outputs.version }}
+      #     body: ${{ steps.changelog.outputs.description }}
